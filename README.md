@@ -1,4 +1,4 @@
-# Project Structure
+# Project Structure
 
 Project Structure is a program that creates  a project directory structure for reproduccible research bassed on [Noble 2009](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424).
 
@@ -18,8 +18,12 @@ This is the folder skeleton that will be created after your run `projestruc` and
 
 **src ->** Scripts, where you put your script files, this may include python, R, bash, etc.
 
-**runall.py ->** The driver script that carries out the entire experiment automatically. For this I use [luigi python](https://github.com/spotify/luigi) but there are many more option available [ check here](https://github.com/pditommaso/awesome-pipeline).
+**runall.py ->** The driver script that carries out the entire experiment automatically. For this I use [luigi python](https://github.com/spotify/luigi) but there are many more options available [ check here](https://github.com/pditommaso/awesome-pipeline).
 
 ## What about the documentation?
+
+The documentation may be only a simple README file or also it can be a more depth documentation that includes code, for example, a Rmarkdown file. By deafault `projectstruc` will create the RADME file.
+
+
 
 
