@@ -20,9 +20,15 @@ This is the folder skeleton that will be created after your run `projestruc` and
 
 **runall.py ->** The driver script that carries out the entire experiment automatically. For this I use [luigi python](https://github.com/spotify/luigi) but there are many more options available [ check here](https://github.com/pditommaso/awesome-pipeline).
 
+**plots ->** Plots are one of the most important aspects of every analysis. If a script generates plots or plots are created by some report they can be saved directly in this directory.
+
 ## What about the documentation?
 
 The documentation may be only a simple README file or also it can be a more depth documentation that includes code, for example, a Rmarkdown file. By deafault `projectstruc` will create the RADME file.
+
+## Notes on reproducible research
+
+See [Karl Broman](http://kbroman.org/steps2rr/) guide on reproduccible research.
 
 
 
