@@ -5,8 +5,8 @@ set -o pipefail
 
 
 # usr arguments -----------------------------------------------------------
-
-dir_prefix=$1
+# check if user supplied dir prefix if not set it to reproducible_dir
+dir_prefix=${1:-reproducible_dir}
 
 # get the current date ----------------------------------------------------
 get_date () {
