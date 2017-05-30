@@ -1,29 +1,47 @@
-#!/usr/bin/env bash
+#!/bin/bash
+#
+# creates a directory for reproducible research
+# usage: sh projestruc.sh -d yes -p dir_prefix
+# if parameters are not supplied by the user, dafult values will
+# be used
+
 set -e
 set -u
 set -o pipefail
 
+# parse arguments
+while [[ $# -gt 1 ]]
+do
+key="$1"
+case $key in
+  -d|--date)
+    DATE="$2"
+    shift
+    ;;
+  -p|--prefix)
+    PREFIX="$2"
+    shift
+    ;;
+   *)
 
-# usr arguments -----------------------------------------------------------
-# check if user supplied dir prefix if not set it to reproducible_dir
-dir_prefix=${1:-reproducible_dir}
+    ;;
+esac
+shift
+done
 
-# get the current date ----------------------------------------------------
+dir_prefix=${PREFIX:-reproducible_dir}
+date=${DATE:-no}
+
 get_date () {
     current_date=($(date +%F))
     echo "$current_date"
 }
 
+if [[ "$date" = "yes" ]] ; then
+  my_dir=$(get_date)-${dir_prefix}
+fi
 
-
-date=$(get_date )
-my_dir="$date-$dir_prefix"
-
-mkdir -p $my_dir/{data,output,src,plots}
-
+mkdir -p ${my_dir:=$dir_prefix}/{data,output,src,plots}
 touch $my_dir/runall.py 
-
-
-# create readme file ------------------------------------------------------
 find $my_dir -type d -exec touch {}/README.md \;
 
