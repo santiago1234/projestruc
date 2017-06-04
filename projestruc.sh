@@ -41,6 +41,14 @@ if [[ "$date" = "yes" ]] ; then
   my_dir=$(get_date)-${dir_prefix}
 fi
 
+# check if directory exist
+if [ -e ${my_dir:-$dir_prefix} ]
+then
+  echo "directory: "${my_dir:-$dir_prefix}" already exist"
+  echo "directory won't be created"
+  exit 0
+fi
+
 mkdir -p ${my_dir:=$dir_prefix}/{data,output,src,plots}
 touch $my_dir/runall.py 
 find $my_dir -type d -exec touch {}/README.md \;
